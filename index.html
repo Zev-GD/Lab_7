@@ -22,9 +22,7 @@
                     return;
                 }
                 let celsius = 0;
-                
-                // YOU FILL IN HERE
-                // Convert fahrenheit into degrees celsius and store it in celsius
+                celsius = (fahrenheit - 32)*5/9
                 
                 document.getElementById("celsiusAnswer").innerHTML = celsius + "&nbsp;Degrees";
             }
@@ -49,7 +47,16 @@
                     return;
                 }
                 let report = "Nothing Yet";
-                
+                if (userGuess < answer) {
+                    report = "Too low, try again"
+                }
+                if (userGuess > answer) {
+                    report = "Too high, try again"
+                }
+                if (userGuess === answer) {
+                    report = "Correct!"
+                }
+            
                 // YOU FILL IN HERE
                 // Report back to the user by filling in whether
                 // the guess is too high, too low, or correct
@@ -79,6 +86,15 @@
                 }
                 
                 let tableHTML = "<table>";
+                for (let i=1;i<=tableMax;i++) { 
+                    tableHTML += "<tr>"
+                    for (let k=1;k<=tableMax;k++) {
+                        result = i*k;
+                        tableHTML += "<td>" + result + "</td>"
+
+                    }
+                    tableHTML += "</tr>"
+                }    
                 
                 // YOU FILL IN HERE
                 // Use an outter loop and an inner loop.
